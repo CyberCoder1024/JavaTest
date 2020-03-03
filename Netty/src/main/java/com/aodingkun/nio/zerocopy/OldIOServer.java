@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-//java IO 的服务器
+//java com.aodingkun.IO 的服务器
 public class OldIOServer {
 
     public static void main(String[] args) throws Exception {

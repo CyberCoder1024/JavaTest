@@ -14,7 +14,7 @@ public class GroupChatServerHandler extends SimpleChannelInboundHandler<String> 
     //public static List<Channel> channels = new ArrayList<Channel>();
 
     //使用一个hashmap 管理
-    //public static Map<String, Channel> channels = new HashMap<String,Channel>();
+    //public static com.aodingkun.Map<String, Channel> channels = new HashMap<String,Channel>();
 
     //定义一个channle 组，管理所有的channel
     //GlobalEventExecutor.INSTANCE) 是全局的事件执行器，是一个单例

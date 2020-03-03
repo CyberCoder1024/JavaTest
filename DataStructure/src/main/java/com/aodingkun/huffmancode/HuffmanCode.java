@@ -62,7 +62,7 @@ public class HuffmanCode {
 		huffmanTreeRoot.preOrder();
 		
 		//����һ���Ƿ������˶�Ӧ�ĺշ�������
-		Map<Byte, String> huffmanCodes = getCodes(huffmanTreeRoot);
+		com.aodingkun.Map<Byte, String> huffmanCodes = getCodes(huffmanTreeRoot);
 		System.out.println("~���ɵĺշ��������= " + huffmanCodes);
 		
 		//����
@@ -326,7 +326,7 @@ public class HuffmanCode {
 	
 	//���ɺշ�������Ӧ�ĺշ�������
 	//˼·:
-	//1. ���շ������������ Map<Byte,String> ��ʽ
+	//1. ���շ������������ com.aodingkun.Map<Byte,String> ��ʽ
 	//   ���ɵĺշ��������{32=01, 97=100, 100=11000, 117=11001, 101=1110, 118=11011, 105=101, 121=11010, 106=0010, 107=1111, 108=000, 111=0011}
 	static Map<Byte, String> huffmanCodes = new HashMap<Byte,String>();
 	//2. �����ɺշ��������ʾ����Ҫȥƴ��·��, ����һ��StringBuilder �洢ĳ��Ҷ�ӽ���·��
@@ -393,7 +393,7 @@ public class HuffmanCode {
 		Map<Byte, Integer> counts = new HashMap<>();
 		for (byte b : bytes) {
 			Integer count = counts.get(b);
-			if (count == null) { // Map��û������ַ�����,��һ��
+			if (count == null) { // com.aodingkun.Map��û������ַ�����,��һ��
 				counts.put(b, 1);
 			} else {
 				counts.put(b, count + 1);
