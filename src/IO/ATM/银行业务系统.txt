@@ -1,0 +1,57 @@
+1、业务功能
+    登录
+    查询余额
+    存款
+    取款
+    转账
+    开户
+    销户
+2、记录银行的用户信息
+    账户---密码----余额
+
+    BufferedReader
+    readLine
+    ObjectOutputStream
+分析：
+1、底层数据如何存储
+    暂用txt，每一行记录一个人的所有信息
+    账户-密码-余额
+    绝对路径和引用路径
+    讲义：
+        存储在当前工程下。
+
+2、业务、
+    2.1 登录性能：
+         缓冲机制，创建一个缓存机制 一次读入，无需多次读入
+        问题： 发现原来的登录的方法每次一调用都需要创建流管道，读取文件的信息
+                内存中操作登录的业务，文件不在一个地方 这样读取过程很慢
+        解决方法：创建一个map集合 充当缓存 将文件中的数据全都读出来；就读一次
+            一行记录窗户将一个对象存起来 一个人 一个对象 三个属性
+        private HashMap<String,User>
+3、MVC分层的架构思想
+
+    View:   视图展示
+    Controller： 控制展示的数据
+    Model：  数据模型
+                数据处理:   Service
+                数据读写：   Dao
+                数据存储：   User对象（PoJo、domain、Bean）
+    DataBase：数据
+        文件
+        MySQL
+
+每一个层次只负责处理自己的事情，层次内部改动其他所有层次不需要改动
+   1、ATMService 业务逻辑（判断 比较 计算）
+        属性 ATMDao
+        业务：
+        登录 查询 存款 取款 转账 开户 销户
+   2、ATMDao 持久化（读写数据） 缓存
+        Selecte（查询 read）
+        ------------
+        （改 增 删 write）
+        Update
+        Insert
+        Delete
+   3、FileLoadAndCommit 操作文件
+        loadFile 读取(加载）文件装入集合
+        commit  将集合更新入文件
