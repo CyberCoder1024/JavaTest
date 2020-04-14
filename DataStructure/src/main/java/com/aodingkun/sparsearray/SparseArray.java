@@ -1,9 +1,14 @@
 package com.aodingkun.sparsearray;
-
+	/**
+	 * @Description:稀疏数组
+	 * @Param:
+	 * @return:
+	 * @Date: 2020/3/8
+	 **/
 public class SparseArray {
 	public static void main(String[] args) {
 		//创建一个元素的二维数组 11*11
-		//0代表没有妻子 1表示黑子 2表示白子
+		//0代表没有棋子 1表示黑子 2表示白子
 		int chessArr1[][]=new int[11][11];
 		chessArr1[1][2]=1;
 		chessArr1[2][3]=2;
