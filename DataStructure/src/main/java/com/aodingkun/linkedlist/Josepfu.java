@@ -3,40 +3,54 @@ package com.aodingkun.linkedlist;
 public class Josepfu {
 
 	public static void main(String[] args) {
-		// ����һ�ѿ����������������ͱ����Ƿ�ok
+		//
 		CircleSingleLinkedList circleSingleLinkedList = new CircleSingleLinkedList();
-		circleSingleLinkedList.addBoy(125);// ����5��С���ڵ�
+		circleSingleLinkedList.addBoy(125);//
 		circleSingleLinkedList.showBoy();
 		
-		//����һ��С����Ȧ�Ƿ���ȷ
+		//
 		circleSingleLinkedList.countBoy(10, 20, 125); // 2->4->1->5->3
 		//String str = "7*2*2-5+1-5+3-3";
 	}
 
 }
 
-// ����һ�����εĵ�������
+/**
+ * 1 先创建第一个节点 让first指向该节点 并形成环形
+ * 2 后面每创建一个新的节点 就把该节点加入到已有的环形链表中
+ * @Description
+ *1.先让一个辅助指针（变量）curBoy 子项first节点
+ *2.然后通过while循环遍历 链表即可 curBoy.next ==first
+ */
 class CircleSingleLinkedList {
-	// ����һ��first�ڵ�,��ǰû�б��
+	// 创建一个first 节点 当前没有编号
 	private Boy first = null;
 
-	// ���С���ڵ㣬������һ�����ε�����
+	/**
+	 *@Description : 功能说明 添加小孩节点 构建成一个环形链表
+	 * @MethodName addBoy
+	 * @params:[nums]
+	 * @Return : void
+	 * @Author : AoDingKun
+	 * @Date : 2020/4/16 3:18
+	*/
 	public void addBoy(int nums) {
-		// nums ��һ������У��
+		// nums 做一个数据校验
 		if (nums < 1) {
-			System.out.println("nums��ֵ����ȷ");
+			System.out.println("nums值不正确");
 			return;
 		}
-		Boy curBoy = null; // ����ָ�룬����������������
-		// ʹ��for���������ǵĻ�������
+		//辅助指针（变量）
+		Boy curBoy = null; //
+		//使用for循环 创建环形链表
 		for (int i = 1; i <= nums; i++) {
-			// ���ݱ�ţ�����С���ڵ�
+			//根据编号 创建节点
 			Boy boy = new Boy(i);
-			// ����ǵ�һ��С��
+			//如果为第一个小孩
 			if (i == 1) {
 				first = boy;
-				first.setNext(first); // ���ɻ�
-				curBoy = first; // ��curBoyָ���һ��С��
+				first.setNext(first); //构成一个环状
+				curBoy = first; //让指针指向第一小孩
 			} else {
 				curBoy.setNext(boy);//
 				boy.setNext(first);//
@@ -45,81 +59,105 @@ class CircleSingleLinkedList {
 		}
 	}
 
-	// ������ǰ�Ļ�������
+	/**
+	 * @Description : 功能说明 遍历当前的环形链表
+	 * @MethodName showBoy
+	 * @params:[]
+	 * @Return : void
+	 * @Author : AoDingKun
+	 * @Date : 2020/4/16 3:26
+	*/
 	public void showBoy() {
-		// �ж������Ƿ�Ϊ��
+		//
 		if (first == null) {
-			System.out.println("û���κ�С��~~");
+			System.out.println("链表为空~");
 			return;
 		}
-		// ��Ϊfirst���ܶ������������Ȼʹ��һ������ָ����ɱ���
+		//使用辅助指针遍历
 		Boy curBoy = first;
 		while (true) {
-			System.out.printf("С���ı�� %d \n", curBoy.getNo());
-			if (curBoy.getNext() == first) {// ˵���Ѿ��������
+			System.out.printf("小孩的编号%d \n", curBoy.getNo());
+			if (curBoy.getNext() == first) {//说明遍历完毕
 				break;
 			}
-			curBoy = curBoy.getNext(); // curBoy����
+			curBoy = curBoy.getNext(); //指针 后移
 		}
 	}
 
-	// �����û������룬�����С����Ȧ��˳��
+
 	/**
-	 * 
-	 * @param startNo
-	 *            ��ʾ�ӵڼ���С����ʼ����
-	 * @param countNum
-	 *            ��ʾ������
-	 * @param nums
-	 *            ��ʾ����ж���С����Ȧ��
-	 */
+	 * @Description : 功能说明	根据用户输入 计算一个小孩出圈的顺序
+	 * @MethodName countBoy
+	 * @Description:
+	 * 1.需求创建一个辅助遍历 事先指向环形链表的最后一个节点
+	 * 2.当小孩报数时 让first 和helper 指针同时移动 m-1次
+	 * 3.这是可以将first指向的小孩节点出圈
+	 * first=first.next
+	 * helper.next=first
+	 * 原来first指向的节点就没有任何引用 就会被回收
+	 * @param startNo 	表示从第几个小孩数数
+	 * @param countNum	表示数几下
+	 * @param nums		表示最初由多少小孩在圈中
+	 * @Return : void
+	 * @Author : AoDingKun
+	 * @Date : 2020/4/16 3:40
+	*/
 	public void countBoy(int startNo, int countNum, int nums) {
-		// �ȶ����ݽ���У��
+		//相对数据进行校验
 		if (first == null || startNo < 1 || startNo > nums) {
-			System.out.println("������������ ����������");
+			System.out.println("参数输入有误 请重新输入");
 			return;
 		}
-		// ����Ҫ������ָ��,�������С����Ȧ
+		//创建一个辅助指针 帮助完成小孩出圈
 		Boy helper = first;
-		// ���󴴽�һ������ָ��(����) helper , ����Ӧ��ָ����������������ڵ�
+		//1.需求创建一个辅助遍历 事先指向环形链表的最后一个节点
 		while (true) {
-			if (helper.getNext() == first) { // ˵��helperָ�����С���ڵ�
+			if (helper.getNext() == first) { //说明 helper指向最后一个节点
 				break;
 			}
 			helper = helper.getNext();
 		}
-		//С������ǰ������ first ��  helper �ƶ� k - 1��
+		//2 当小孩报数时 让first 和helper 指针 移动 k-1次
 		for(int j = 0; j < startNo - 1; j++) {
 			first = first.getNext();
 			helper = helper.getNext();
 		}
-		//��С������ʱ����first �� helper ָ��ͬʱ ���ƶ�  m  - 1 ��, Ȼ���Ȧ
-		//������һ��ѭ��������֪��Ȧ��ֻ��һ���ڵ�
+		//2 当小孩报数时 让first 和helper 指针同时移动 m-1次
 		while(true) {
-			if(helper == first) { //˵��Ȧ��ֻ��һ���ڵ�
+			if(helper == first) { //只有一个人
 				break;
 			}
-			//�� first �� helper ָ��ͬʱ ���ƶ� countNum - 1
+			//让first helper 指针同时 移动 CountNum-1
 			for(int j = 0; j < countNum - 1; j++) {
 				first = first.getNext();
 				helper = helper.getNext();
 			}
-			//��ʱfirstָ��Ľڵ㣬����Ҫ��Ȧ��С���ڵ�
-			System.out.printf("С��%d��Ȧ\n", first.getNo());
-			//��ʱ��firstָ���С���ڵ��Ȧ
+			//这是first指向的节点 就是出圈小孩的节点
+			System.out.printf("小孩%d出圈\n", first.getNo());
+			//这时候将first指向的小孩出圈
 			first = first.getNext();
 			helper.setNext(first); //
 			
 		}
-		System.out.printf("�������Ȧ�е�С�����%d \n", first.getNo());
+		System.out.printf("最后留在圈中的节点%d \n", first.getNo());
 		
 	}
 }
 
-// ����һ��Boy�࣬��ʾһ���ڵ�
+/**
+ *创建一个Boy类 表示一个基点
+ */
 class Boy {
-	private int no;// ���
-	private Boy next; // ָ����һ���ڵ�,Ĭ��null
+	private int no;//编号
+	private Boy next; // 指向下一个节点 默认null
+/**
+ * @Description : 功能说明 构造一个方法
+ * @MethodName Boy
+ * @params:[no]
+ * @Return :
+ * @Author : AoDingKun
+ * @Date : 2020/4/16 3:25
+*/
 
 	public Boy(int no) {
 		this.no = no;

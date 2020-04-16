@@ -307,24 +307,24 @@ class SingleLinkedList {
 	//2.
 	public void del(int no) {
 		HeroNode temp = head;
-		boolean flag = false; //
+		boolean flag = false; //标记是否找到待删除的节点
 		while(true) {
-			if(temp.next == null) { //
+			if(temp.next == null) { //已经找到链表的最后
 				break;
 			}
 			if(temp.next.no == no) {
-				//
+				//找到待删除节点的前一个节点temp
 				flag = true;
 				break;
 			}
-			temp = temp.next; //
+			temp = temp.next; //temp后移 遍历
 		}
-		//
-		if(flag) { //
-			//
+		//判断flag
+		if(flag) { //找到
+			//可以删除
 			temp.next = temp.next.next;
 		}else {
-			System.out.printf("?????? %d ???????\n", no);
+			System.out.printf("要删除的 %d 节点不存在\n", no);
 		}
 	}
 	

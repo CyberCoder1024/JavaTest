@@ -6,32 +6,32 @@ public class ArrayStackDemo {
 
 	public static void main(String[] args) {
 		//����һ��ArrayStack �Ƿ���ȷ
-		//�ȴ���һ��ArrayStack����->��ʾջ
+		//创建一个ArrayStack对象 表示栈
 		ArrayStack stack = new ArrayStack(4);
-		String key = "";
-		boolean loop = true; //�����Ƿ��˳��˵�
+		String key = "";//空串
+		boolean loop = true; //控制是否退出菜单
 		Scanner scanner = new Scanner(System.in);
 		
 		while(loop) {
-			System.out.println("show: ��ʾ��ʾջ");
-			System.out.println("exit: �˳�����");
-			System.out.println("push: ��ʾ������ݵ�ջ(��ջ)");
-			System.out.println("pop: ��ʾ��ջȡ������(��ջ)");
-			System.out.println("���������ѡ��");
+			System.out.println("show: 显示 ");
+			System.out.println("exit: 退出");
+			System.out.println("push: 入栈");
+			System.out.println("pop: 出栈");
+			System.out.println("选择你的输入");
 			key = scanner.next();
 			switch (key) {
 			case "show":
 				stack.list();
 				break;
 			case "push":
-				System.out.println("������һ����");
+				System.out.println("");
 				int value = scanner.nextInt();
 				stack.push(value);
 				break;
 			case "pop":
 				try {
 					int res = stack.pop();
-					System.out.printf("��ջ�������� %d\n", res);
+					System.out.printf(" 出栈的数据%d\n", res);
 				} catch (Exception e) {
 					// TODO: handle exception
 					System.out.println(e.getMessage());
@@ -46,59 +46,59 @@ public class ArrayStackDemo {
 			}
 		}
 		
-		System.out.println("�����˳�~~~");
+		System.out.println("");
 	}
 
 }
 
-//����һ�� ArrayStack ��ʾջ
+//定义一个栈
 class ArrayStack {
-	private int maxSize; // ջ�Ĵ�С
-	private int[] stack; // ���飬����ģ��ջ�����ݾͷ��ڸ�����
-	private int top = -1;// top��ʾջ������ʼ��Ϊ-1
+	private int maxSize; // 栈的大小
+	private int[] stack; // 数组 模拟战 数据放在该组
+	private int top = -1;// top表示栈顶 初始化为-1
 	
-	//������
+	//构造器 栈的大小
 	public ArrayStack(int maxSize) {
 		this.maxSize = maxSize;
 		stack = new int[this.maxSize];
 	}
 	
-	//ջ��
+	//栈空
 	public boolean isFull() {
 		return top == maxSize - 1;
 	}
-	//ջ��
+	//栈满
 	public boolean isEmpty() {
 		return top == -1;
 	}
-	//��ջ-push
+	//入账-PUSH
 	public void push(int value) {
-		//���ж�ջ�Ƿ���
+		//判断栈是否满
 		if(isFull()) {
-			System.out.println("ջ��");
+			System.out.println("栈满");
 			return;
 		}
 		top++;
 		stack[top] = value;
 	}
-	//��ջ-pop, ��ջ�������ݷ���
+	//出栈 POP 将栈顶的数据返回
 	public int pop() {
-		//���ж�ջ�Ƿ��
+		//判断栈是否为空
 		if(isEmpty()) {
-			//�׳��쳣
-			throw new RuntimeException("ջ�գ�û������~");
+			//抛出一个运行异常
+			throw new RuntimeException("栈空~");
 		}
 		int value = stack[top];
 		top--;
 		return value;
 	}
-	//��ʾջ�����[����ջ]�� ����ʱ����Ҫ��ջ����ʼ��ʾ����
+	//显示栈的情况
 	public void list() {
 		if(isEmpty()) {
-			System.out.println("ջ�գ�û������~~");
+			System.out.println("~~");
 			return;
 		}
-		//��Ҫ��ջ����ʼ��ʾ����
+		//需要从栈顶显示出书
 		for(int i = top; i >= 0 ; i--) {
 			System.out.printf("stack[%d]=%d\n", i, stack[i]);
 		}
