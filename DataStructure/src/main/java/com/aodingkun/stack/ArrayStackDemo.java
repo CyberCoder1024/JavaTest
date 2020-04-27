@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class ArrayStackDemo {
 
 	public static void main(String[] args) {
-		//����һ��ArrayStack �Ƿ���ȷ
 		//创建一个ArrayStack对象 表示栈
 		ArrayStack stack = new ArrayStack(4);
 		String key = "";//空串
@@ -57,7 +56,7 @@ class ArrayStack {
 	private int[] stack; // 数组 模拟战 数据放在该组
 	private int top = -1;// top表示栈顶 初始化为-1
 	
-	//构造器 栈的大小
+	//初始化 构造器 栈的大小
 	public ArrayStack(int maxSize) {
 		this.maxSize = maxSize;
 		stack = new int[this.maxSize];
@@ -71,7 +70,7 @@ class ArrayStack {
 	public boolean isEmpty() {
 		return top == -1;
 	}
-	//入账-PUSH
+	//入栈-PUSH
 	public void push(int value) {
 		//判断栈是否满
 		if(isFull()) {

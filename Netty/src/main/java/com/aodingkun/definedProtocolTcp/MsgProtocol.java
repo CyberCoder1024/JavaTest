@@ -24,7 +24,7 @@ public class MsgProtocol {
 
     private byte[] dataContent;
 
-    //private int CRC;
+    private int CRC;
 
     private short tail;
     public MsgProtocol(){

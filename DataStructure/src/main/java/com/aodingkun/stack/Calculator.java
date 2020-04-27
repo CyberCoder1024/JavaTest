@@ -4,7 +4,7 @@ public class Calculator {
 
 	public static void main(String[] args) {
 		//表达式
-		String expression = "7*2*2-5+1-5+3-4"; // 15//
+		String expression = "7*2*2-5+1-5+3-4"; // 15// 多位数处理？
 		//创建两个栈
 		ArrayStack2 numStack = new ArrayStack2(10);//数栈
 		ArrayStack2 operStack = new ArrayStack2(10);//符号栈
@@ -46,21 +46,24 @@ public class Calculator {
 			} else { //如果为数 直接入数栈
 				
 				//numStack.push(ch - 48); //? "1+3" '1' => 1
-
+				//1.当处理多位数时，不能发现是一个数就立即入栈 因为可能为多位数
+				//2.在处理数的适合 需要向expression 的表达式的index 后再看衣卫 如果是数继续扫描 如果为符号才入栈
+				//3.定义一个字符串变量 用于拼接
+				//多位数处理
 				keepNum += ch;
-				
+
 				//index+1 判断是否扫描到表达式的最后
 				if (index == expression.length() - 1) {
 					numStack.push(Integer.parseInt(keepNum));
 				}else{
 				
-					//
+					////判断下一个字符是不是数字 如果是数字 就继续扫描 如果是运算符 则入栈
+					//注意看后一位 不是index++
 					if (operStack.isOper(expression.substring(index+1,index+2).charAt(0))) {
-						//
+						//如果后一位是运算符 则入栈 keepNum
 						numStack.push(Integer.parseInt(keepNum));
-						//
+						//清空KeepNum
 						keepNum = "";
-						
 					}
 				}
 			}

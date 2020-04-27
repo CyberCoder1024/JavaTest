@@ -3,29 +3,29 @@ package com.aodingkun.recursion;
 public class MiGong {
 
 	public static void main(String[] args) {
-		// �ȴ���һ����ά���飬ģ���Թ�
-		// ��ͼ
+		//创建二维素组 模拟迷宫
+		//地图
 		int[][] map = new int[8][7];
-		// ʹ��1 ��ʾǽ
-		// ����ȫ����Ϊ1
+
+		//	使用1表示墙；
+		// 上下全部置为1
 		for (int i = 0; i < 7; i++) {
 			map[0][i] = 1;
 			map[7][i] = 1;
 		}
-
-		// ����ȫ����Ϊ1
+		//左右置为1
 		for (int i = 0; i < 8; i++) {
 			map[i][0] = 1;
 			map[i][6] = 1;
 		}
-		//���õ���, 1 ��ʾ
+		//设置挡板
 		map[3][1] = 1;
 		map[3][2] = 1;
 //		map[1][2] = 1;
 //		map[2][2] = 1;
 		
-		// �����ͼ
-		System.out.println("��ͼ�����");
+
+		System.out.println("输出地图情况");
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 7; j++) {
 				System.out.print(map[i][j] + " ");
@@ -33,12 +33,11 @@ public class MiGong {
 			System.out.println();
 		}
 		
-		//ʹ�õݹ���ݸ�С����·
-		//setWay(map, 1, 1);
+
 		setWay2(map, 1, 1);
 		
-		//����µĵ�ͼ, С���߹�������ʶ���ĵݹ�
-		System.out.println("С���߹�������ʶ���� ��ͼ�����");
+
+		System.out.println("");
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 7; j++) {
 				System.out.print(map[i][j] + " ");
@@ -47,69 +46,65 @@ public class MiGong {
 		}
 		
 	}
-	
-	//ʹ�õݹ��������С����·
-	//˵��
-	//1. map ��ʾ��ͼ
-	//2. i,j ��ʾ�ӵ�ͼ���ĸ�λ�ÿ�ʼ���� (1,1)
-	//3. ���С���ܵ� map[6][5] λ�ã���˵��ͨ·�ҵ�.
-	//4. Լ���� ��map[i][j] Ϊ 0 ��ʾ�õ�û���߹� ��Ϊ 1 ��ʾǽ  �� 2 ��ʾͨ·������ �� 3 ��ʾ�õ��Ѿ��߹��������߲�ͨ
-	//5. �����Թ�ʱ����Ҫȷ��һ������(����) ��->��->��->�� , ����õ��߲�ͨ���ٻ���
+
 	/**
-	 * 
-	 * @param map ��ʾ��ͼ
-	 * @param i ���ĸ�λ�ÿ�ʼ��
-	 * @param j 
-	 * @return ����ҵ�ͨ·���ͷ���true, ���򷵻�false
+	 * 使用递归
+	 * 1. map表示地图
+	 * 2. i，j 表示从地图那个位置； 出发位置 （1，1） 结束位置（6，5）
+	 * 3. 约定：map[i][j] 为0表示该点没有走过，为1表示墙；为2 表示通路可以走；3 表示该店已经走过，但是走不通
+	 * 4. 策略方法确定 ：先 下--右--上--左；如果该点不通 回溯
+	 * @param map 表示地图
+	 * @param i 从哪个位置开始找
+	 * @param j
+	 * @return 如果找到通路，返回true；反之为false
 	 */
 	public static boolean setWay(int[][] map, int i, int j) {
-		if(map[6][5] == 2) { // ͨ·�Ѿ��ҵ�ok
+		if(map[6][5] == 2) {//通路已经找到
 			return true;
 		} else {
-			if(map[i][j] == 0) { //�����ǰ����㻹û���߹�
-				//���ղ��� ��->��->��->��  ��
-				map[i][j] = 2; // �ٶ��õ��ǿ�����ͨ.
-				if(setWay(map, i+1, j)) {//������
+			if(map[i][j] == 0) {//当前点没有走过
+				//按照策略
+				map[i][j] = 2;//假定该店可通
+				if(setWay(map, i+1, j)) {//向下走
 					return true;
-				} else if (setWay(map, i, j+1)) { //������
+				} else if (setWay(map, i, j+1)) {//向右走
 					return true;
-				} else if (setWay(map, i-1, j)) { //����
+				} else if (setWay(map, i-1, j)) {//向上走
 					return true;
-				} else if (setWay(map, i, j-1)){ // ������
+				} else if (setWay(map, i, j-1)){//向左走
 					return true;
 				} else {
-					//˵���õ����߲�ͨ������·
+					//该点置为3
 					map[i][j] = 3;
 					return false;
 				}
-			} else { // ���map[i][j] != 0 , ������ 1�� 2�� 3
+			} else {
 				return false;
 			}
 		}
 	}
 	
-	//�޸���·�Ĳ��ԣ��ĳ� ��->��->��->��
+
 	public static boolean setWay2(int[][] map, int i, int j) {
-		if(map[6][5] == 2) { // ͨ·�Ѿ��ҵ�ok
+		if(map[6][5] == 2) {
 			return true;
 		} else {
-			if(map[i][j] == 0) { //�����ǰ����㻹û���߹�
-				//���ղ��� ��->��->��->��
-				map[i][j] = 2; // �ٶ��õ��ǿ�����ͨ.
-				if(setWay2(map, i-1, j)) {//������
+			if(map[i][j] == 0) {
+				map[i][j] = 2;
+				if(setWay2(map, i-1, j)) {
 					return true;
-				} else if (setWay2(map, i, j+1)) { //������
+				} else if (setWay2(map, i, j+1)) {
 					return true;
-				} else if (setWay2(map, i+1, j)) { //����
+				} else if (setWay2(map, i+1, j)) {
 					return true;
-				} else if (setWay2(map, i, j-1)){ // ������
+				} else if (setWay2(map, i, j-1)){
 					return true;
 				} else {
-					//˵���õ����߲�ͨ������·
+
 					map[i][j] = 3;
 					return false;
 				}
-			} else { // ���map[i][j] != 0 , ������ 1�� 2�� 3
+			} else {
 				return false;
 			}
 		}
