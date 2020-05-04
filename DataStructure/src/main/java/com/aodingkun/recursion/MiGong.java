@@ -32,12 +32,13 @@ public class MiGong {
 			}
 			System.out.println();
 		}
-		
+		//使用递归 回溯给小球找路
+		setWay(map,1 , 1);
 
 		setWay2(map, 1, 1);
 		
 
-		System.out.println("");
+		System.out.println("小球走过并标识的路");
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 7; j++) {
 				System.out.print(map[i][j] + " ");
