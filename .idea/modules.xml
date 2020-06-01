@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/AdvancedTechnology/AdvancedTechnology.iml" filepath="$PROJECT_DIR$/AdvancedTechnology/AdvancedTechnology.iml" />
-      <module fileurl="file://$PROJECT_DIR$/DataStructure/DataStructureAndAlgorithm.iml" filepath="$PROJECT_DIR$/DataStructure/DataStructureAndAlgorithm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataStructureAndAkforithm/DataStructureAndAlgorithm.iml" filepath="$PROJECT_DIR$/DataStructureAndAkforithm/DataStructureAndAlgorithm.iml" />
       <module fileurl="file://$PROJECT_DIR$/JavaTest.iml" filepath="$PROJECT_DIR$/JavaTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/Netty/Netty.iml" filepath="$PROJECT_DIR$/Netty/Netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" filepath="$PROJECT_DIR$/ObjectOrientedProgramming/ObjectOrientedProgramming.iml" />

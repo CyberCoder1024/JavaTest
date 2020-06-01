@@ -2,7 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/AdvancedTechnology" />
-    <file type="web" url="file://$PROJECT_DIR$/DataStructure" />
+    <file type="web" url="file://$PROJECT_DIR$/DataStructureAndAkforithm" />
     <file type="web" url="file://$PROJECT_DIR$/Netty" />
   </component>
   <component name="MavenProjectsManager">
