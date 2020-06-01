@@ -26,11 +26,11 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         int contentLength = msgProtocol.getContentLength();
         byte[] dataContent = msgProtocol.getDataContent();
         System.out.println("服务器收到的内容如下");
-        System.out.println("标志位"+flag);
-        System.out.println("数据长度"+contentLength);
-        System.out.println("数据内容"+new String(dataContent, Charset.forName("utf-8")));
+        System.out.println("标志位" + flag);
+        System.out.println("数据长度" + contentLength);
+        System.out.println("数据内容" + new String(dataContent, Charset.forName("utf-8")));
 
-        System.out.println("内容"+dataContent.toString());
+        System.out.println("内容" + dataContent.toString());
 
         //恢复消息
         String responseCode = UUID.randomUUID().toString();

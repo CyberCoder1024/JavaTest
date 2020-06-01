@@ -29,30 +29,30 @@ public class TestFileOutputStream {
         }catch (IOException e){
             e.printStackTrace();
         }*/
-     FileOutputStream fos=null;
-     try{
-         File file = new File("D://test//test.txt");
-        fos = new FileOutputStream(file,true);
-         //创建一个数组  带着信息
-         //byte[] b = new byte[]{97,98,99};
-         //String --->byte[]
-         String str="杭州市西湖区留和路288号";
-         byte[] b = str.getBytes();
-         fos.write(b);
-         fos.flush();
+        FileOutputStream fos = null;
+        try {
+            File file = new File("D://test//test.txt");
+            fos = new FileOutputStream(file, true);
+            //创建一个数组  带着信息
+            //byte[] b = new byte[]{97,98,99};
+            //String --->byte[]
+            String str = "杭州市西湖区留和路288号";
+            byte[] b = str.getBytes();
+            fos.write(b);
+            fos.flush();
 
-     } catch (IOException e) {
-         e.printStackTrace();
-     }finally {
-         try {
-             if (fos!=null){
-                 fos.close();
-             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fos != null) {
+                    fos.close();
+                }
 
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
-     }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 }

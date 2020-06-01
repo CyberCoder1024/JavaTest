@@ -22,6 +22,5 @@ public class MsgEncoder extends MessageToByteEncoder<MsgProtocol> {
         bufOut.writeBytes(msgProtocol.getDataContent());
 
 
-
     }
 }

@@ -41,7 +41,7 @@ public class GroupChatClient {
 
         try {
             socketChannel.write(ByteBuffer.wrap(info.getBytes()));
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -52,16 +52,16 @@ public class GroupChatClient {
         try {
 
             int readChannels = selector.select();
-            if(readChannels > 0) {//有可以用的通道
+            if (readChannels > 0) {//有可以用的通道
 
                 Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
                 while (iterator.hasNext()) {
 
                     SelectionKey key = iterator.next();
-                    if(key.isReadable()) {
+                    if (key.isReadable()) {
                         //得到相关的通道
-                       SocketChannel sc = (SocketChannel) key.channel();
-                       //得到一个Buffer
+                        SocketChannel sc = (SocketChannel) key.channel();
+                        //得到一个Buffer
                         ByteBuffer buffer = ByteBuffer.allocate(1024);
                         //读取
                         sc.read(buffer);
@@ -76,7 +76,7 @@ public class GroupChatClient {
 
             }
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -94,7 +94,7 @@ public class GroupChatClient {
                     chatClient.readInfo();
                     try {
                         Thread.currentThread().sleep(3000);
-                    }catch (InterruptedException e) {
+                    } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }

@@ -8,6 +8,7 @@ import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 
 import java.net.URI;
+
 /**
  * @Description:接收和发送信息
  * @Param:
@@ -28,14 +29,14 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
 
 
         System.out.println("对应的channel=" + ctx.channel() + " pipeline=" + ctx
-        .pipeline() + " 通过pipeline获取channel" + ctx.pipeline().channel());
+                .pipeline() + " 通过pipeline获取channel" + ctx.pipeline().channel());
 
         System.out.println("当前ctx的handler=" + ctx.handler());
 
         //判断 msg 是不是 httprequest请求
-        if(msg instanceof HttpRequest) {
+        if (msg instanceof HttpRequest) {
 
-            System.out.println("ctx 类型="+ctx.getClass());
+            System.out.println("ctx 类型=" + ctx.getClass());
 
             System.out.println("pipeline hashcode" + ctx.pipeline().hashCode() + " TestHttpServerHandler hash=" + this.hashCode());
 
@@ -48,7 +49,7 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
             //获取uri, 过滤指定的资源
             URI uri = new URI(httpRequest.uri());
             //如果路径==同学
-            if("/favicon.ico".equals(uri.getPath())) {
+            if ("/favicon.ico".equals(uri.getPath())) {
                 System.out.println("请求了 favicon.ico, 不做响应");
                 return;
             }
@@ -67,7 +68,6 @@ public class TestHttpServerHandler extends SimpleChannelInboundHandler<HttpObjec
 
         }
     }
-
 
 
 }

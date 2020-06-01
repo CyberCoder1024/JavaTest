@@ -8,7 +8,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 import java.nio.charset.Charset;
 import java.util.UUID;
 
-public class MyServerHandler extends SimpleChannelInboundHandler<ByteBuf>{
+public class MyServerHandler extends SimpleChannelInboundHandler<ByteBuf> {
     private int count;
 
     @Override
@@ -16,6 +16,7 @@ public class MyServerHandler extends SimpleChannelInboundHandler<ByteBuf>{
         //cause.printStackTrace();
         ctx.close();
     }
+
     /**
      * @Description:接收数据
      * @Param:

@@ -19,26 +19,30 @@ public class User implements Serializable {
     private String account;
     private String password;
     private Float balances;
+
     //无参构造方法
-    public User(){
+    public User() {
 
     }
+
     //有参的构造方法
-    public  User(String account,String password){
-        this.account=account;
-        this.password=password;
+    public User(String account, String password) {
+        this.account = account;
+        this.password = password;
 
 
     }
-    public  User(String account,String password,Float balances){
-        this.account=account;
-        this.password=password;
-        this.balances=balances;
+
+    public User(String account, String password, Float balances) {
+        this.account = account;
+        this.password = password;
+        this.balances = balances;
 
     }
-    public  User(String account,Float balances){
-        this.account=account;
-        this.balances=balances;
+
+    public User(String account, Float balances) {
+        this.account = account;
+        this.balances = balances;
 
     }
 
@@ -68,9 +72,8 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "[账户="+account+",密码="+password+",余额="+balances+"]";
+        return "[账户=" + account + ",密码=" + password + ",余额=" + balances + "]";
     }
-
 
 
 }

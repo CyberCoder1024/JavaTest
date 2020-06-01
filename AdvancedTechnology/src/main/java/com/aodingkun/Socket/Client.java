@@ -14,25 +14,25 @@ import java.net.Socket;
  * @Version 1.0
  **/
 public class Client {
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) throws IOException {
         File file = new File("C:\\Users\\logo.jpg");
         if (file.exists())
             FileProtocl(file);
         else
-            throw new IOException("文件"+file+"不存在");
+            throw new IOException("文件" + file + "不存在");
 
 
     }
 
-    private static void FileProtocl(File file)throws IOException {
+    private static void FileProtocl(File file) throws IOException {
         Socket client = new Socket("127.0.0.1", 8086);
         //创建文件输出流
         PrintWriter pwout = new PrintWriter(client.getOutputStream(), true);
         //创建文件输入流 选择字符缓存流bufferedReader
         BufferedReader bufread = new BufferedReader(new FileReader(file));
         //开始传输，传输完打印提示
-        String line=null;
-        while ((line=bufread.readLine())!=null){
+        String line = null;
+        while ((line = bufread.readLine()) != null) {
             System.out.println(line);
         }
         client.shutdownOutput();//通知客户的传输完毕

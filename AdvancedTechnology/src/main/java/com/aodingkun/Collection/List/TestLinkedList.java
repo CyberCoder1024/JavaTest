@@ -12,11 +12,11 @@ import java.util.LinkedList;
  **/
 public class TestLinkedList {
     public static void main(String[] args) {
-        LinkedList<String> linkedList=new LinkedList<String>();
+        LinkedList<String> linkedList = new LinkedList<String>();
 
-    //    long time1= System.currentTimeMillis();
+        //    long time1= System.currentTimeMillis();
         //linkedList 200000 次为例
-        for (int i = 1; i <200000 ; i++) {
+        for (int i = 1; i < 200000; i++) {
             //向后追加元素 23a
             //linkedList.addLast("a");
             //向前插入元素 23
@@ -24,13 +24,13 @@ public class TestLinkedList {
 
         }
         //遍历轮询
-        long time1= System.currentTimeMillis();
+        long time1 = System.currentTimeMillis();
         //遍历轮询 3毫秒
-        for (String value:linkedList
-             ) {
+        for (String value : linkedList
+        ) {
 
         }
-        long time2=System.currentTimeMillis();
-        System.out.println(time2-time1);
+        long time2 = System.currentTimeMillis();
+        System.out.println(time2 - time1);
     }
 }

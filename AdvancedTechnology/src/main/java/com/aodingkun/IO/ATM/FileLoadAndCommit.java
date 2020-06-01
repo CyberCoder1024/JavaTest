@@ -15,45 +15,47 @@ import java.util.Iterator;
 public class FileLoadAndCommit {
 
     //文件路径
-    private String filePath=null;
-    public FileLoadAndCommit(String filePath){
-        this.filePath=filePath;
+    private String filePath = null;
+
+    public FileLoadAndCommit(String filePath) {
+        this.filePath = filePath;
     }
 
     //TODO 程序块加载
-    public HashMap<String,User>loadFile(){
+    public HashMap<String, User> loadFile() {
         //键值对
         //键 用户账户 ；值 用户对象 三个属性 可读性好
         //集合除了可以充当缓存 增强执行性能之外 还能用来记录修改
-     HashMap<String,User> userBox=new HashMap<String,User>();
+        HashMap<String, User> userBox = new HashMap<String, User>();
         {
-            BufferedReader bfr=null;
-            FileReader fileReader=null;
+            BufferedReader bfr = null;
+            FileReader fileReader = null;
             //TODO 程序库的目的是在对象创建之前 给集合进行赋值
             try {
                 File file = new File(filePath);
                 fileReader = new FileReader(file);
                 bfr = new BufferedReader(fileReader);
-                String value=bfr.readLine();
-                while (value!=null){
+                String value = bfr.readLine();
+                while (value != null) {
                     //value的信息拆分成三段 构建一个User对象 三个属性刚好存储 对象存入集合
                     String[] userValue = value.split("-");
                     User userMap = new User(userValue[0], userValue[1], Float.parseFloat(userValue[2]));
                     //put(账户，User对象）
-                    userBox.put(userMap.getaccount(),userMap);
-                    value=bfr.readLine();
+                    userBox.put(userMap.getaccount(), userMap);
+                    value = bfr.readLine();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 try {
-                    if (fileReader !=null){
+                    if (fileReader != null) {
                         fileReader.close();
                     }
-                }catch (IOException e){
+                } catch (IOException e) {
                     e.printStackTrace();
-                }try {
-                    if (bfr!=null){
+                }
+                try {
+                    if (bfr != null) {
                         bfr.close();
                     }
                 } catch (IOException e) {
@@ -64,8 +66,9 @@ public class FileLoadAndCommit {
         return userBox;
 
     }
+
     //TODO 设计一个方法 目的是为了将集合内的所有数据写入文件
-    public void commit(HashMap<String,User> userBox) {//数据库----commmit提交-----事务
+    public void commit(HashMap<String, User> userBox) {//数据库----commmit提交-----事务
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
         try {

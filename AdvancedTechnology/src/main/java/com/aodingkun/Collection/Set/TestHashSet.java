@@ -32,13 +32,13 @@ public class TestHashSet {
         }*/
 
 
-      //TODO hashSet 无重复原则
+        //TODO hashSet 无重复原则
         HashSet<Person> pset = new HashSet<Person>();
-        pset.add(new Person("蔡徐坤",1));
-        pset.add(new Person("蔡徐坤",2));
-        pset.add(new Person("吴亦凡",3));
-        pset.add(new Person("两开花",4));
-        pset.add(new Person("庆余年",5));
+        pset.add(new Person("蔡徐坤", 1));
+        pset.add(new Person("蔡徐坤", 2));
+        pset.add(new Person("吴亦凡", 3));
+        pset.add(new Person("两开花", 4));
+        pset.add(new Person("庆余年", 5));
         System.out.println(pset.size());//5个
         //蔡徐坤此对象只剩一个 第一存储的还是最后一次存储的
         System.out.println(pset.iterator().next().getNum());

@@ -15,14 +15,13 @@ public class TestTreeSet {
 
         TreeSet<Person> personSet = new TreeSet<Person>();
 
-        personSet.add(new Person("sunwukong",1));
-        personSet.add(new Person("sunwukong",2));
-        personSet.add(new Person("sunwukong",3));
-        personSet.add(new Person("sunwukong",4));
+        personSet.add(new Person("sunwukong", 1));
+        personSet.add(new Person("sunwukong", 2));
+        personSet.add(new Person("sunwukong", 3));
+        personSet.add(new Person("sunwukong", 4));
 
         System.out.println(personSet.size());
-       System.out.println(personSet);
-
+        System.out.println(personSet);
 
 
         TreeSet<String> stringSet = new TreeSet<String>();

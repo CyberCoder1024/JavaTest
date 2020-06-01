@@ -12,10 +12,10 @@ import java.rmi.UnexpectedException;
  * @Version 1.0
  **/
 public class TestSocket {
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
         InetAddress host = InetAddress.getLocalHost();
         String ip = host.getHostAddress();
-        System.out.println("本机ip地址"+ip);
+        System.out.println("本机ip地址" + ip);
 
 
     }

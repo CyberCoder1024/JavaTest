@@ -12,12 +12,12 @@ import java.io.*;
  **/
 public class CharStream {
     public static void main(String[] args) {
-        try{
+        try {
             //字符型文件输入流
             File file = new File("");
             FileWriter fw = new FileWriter(file);
             FileReader fr = new FileReader(file);
-            String  str="abc";
+            String str = "abc";
             char[] chars = str.toCharArray();
             fw.write(97);
             fw.write(chars);

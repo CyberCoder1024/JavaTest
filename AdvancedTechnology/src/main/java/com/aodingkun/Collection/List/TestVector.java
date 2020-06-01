@@ -12,7 +12,7 @@ import java.util.Stack;
  **/
 public class TestVector {
     public static void main(String[] args) {
-        Stack<String> stack=new Stack<>();
+        Stack<String> stack = new Stack<>();
         stack.push("zjut");
         stack.push("zju");
         stack.push("cai");

@@ -27,12 +27,12 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<MyDataInfo.M
 
         MyDataInfo.MyMessage.DataType dataType = msg.getDataType();
         //如果拿到的类型是学生StudentType类型
-        if(dataType == MyDataInfo.MyMessage.DataType.StudentType) {
+        if (dataType == MyDataInfo.MyMessage.DataType.StudentType) {
 
             MyDataInfo.Student student = msg.getStudent();
             System.out.println("学生id=" + student.getId() + " 学生名字=" + student.getName());
 
-        } else if(dataType == MyDataInfo.MyMessage.DataType.WorkerType) {
+        } else if (dataType == MyDataInfo.MyMessage.DataType.WorkerType) {
             MyDataInfo.Worker worker = msg.getWorker();
             System.out.println("工人的名字=" + worker.getName() + " 年龄=" + worker.getAge());
         } else {
@@ -41,7 +41,6 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<MyDataInfo.M
 
 
     }
-
 
 
 //    //读取数据实际(这里我们可以读取客户端发送的消息)

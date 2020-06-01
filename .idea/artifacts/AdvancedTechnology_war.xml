@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="AdvancedTechnology:war">
+    <output-path>$PROJECT_DIR$/AdvancedTechnology/target</output-path>
+    <root id="archive" name="Advanced Technology.war">
+      <element id="artifact" artifact-name="AdvancedTechnology:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -14,7 +14,7 @@ import java.nio.channels.FileChannel;
  * @Version 1.0
  **/
 public class NIOFileChannel {
-    public static void main(String[] args)throws Exception {
+    public static void main(String[] args) throws Exception {
 
         FileInputStream fis = new FileInputStream("C:\\Users\\jonas.ao\\Documents\\ProjectCode\\JavaTest\\Netty\\src\\main\\java\\com.aodingkun.nio\\1.txt");
         FileChannel fisChannel = fis.getChannel();
@@ -25,14 +25,14 @@ public class NIOFileChannel {
         //创建一个缓存区 输入输出读写共用一个缓冲区
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
-        while (true){
+        while (true) {
             //重要操作 清空buffer 相关标志位进行重置
             byteBuffer.clear();
 
             //循环读取
             int read = fisChannel.read(byteBuffer);//buffer从 通道数据读取数据
-            System.out.println("read="+read);
-            if (read==-1){
+            System.out.println("read=" + read);
+            if (read == -1) {
                 //读取结束
                 break;
             }

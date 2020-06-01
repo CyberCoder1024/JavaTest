@@ -13,21 +13,23 @@ public class digui {
         digui dg = new digui();
         dg.buildTower1(5);
     }
+
     //盖宝塔--循环
-    public void buildTower(int floor){
-        for (int i=1;i<=floor;i++){
-            System.out.println("盖到第"+floor+"层宝塔");
+    public void buildTower(int floor) {
+        for (int i = 1; i <= floor; i++) {
+            System.out.println("盖到第" + floor + "层宝塔");
         }
     }
+
     //递归的思想
-        //想让我盖到第五层：我要求让别人把之前的事前做完
-        //1、等待别人做事 2、我自己做事；调用顺序 和执行顺序相反
-    public void buildTower1(int floor){
+    //想让我盖到第五层：我要求让别人把之前的事前做完
+    //1、等待别人做事 2、我自己做事；调用顺序 和执行顺序相反
+    public void buildTower1(int floor) {
         //判断当前floor是否位1 若不是找一个别人先盖到之前层
-        if (floor>1){
-            this.buildTower1(floor-1);
+        if (floor > 1) {
+            this.buildTower1(floor - 1);
         }
-        System.out.println("盖到第"+floor+"层宝塔啦");
+        System.out.println("盖到第" + floor + "层宝塔啦");
 
     }
 }

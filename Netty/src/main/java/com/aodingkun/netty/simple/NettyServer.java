@@ -21,7 +21,6 @@ public class NettyServer {
         EventLoopGroup workerGroup = new NioEventLoopGroup(); //8
 
 
-
         try {
             //创建服务器端的启动对象，配置参数
             ServerBootstrap bootstrap = new ServerBootstrap();
@@ -52,7 +51,7 @@ public class NettyServer {
 
             cf.addListener(new ChannelFutureListener() {
                 @Override
-                    public void operationComplete(ChannelFuture future) throws Exception {
+                public void operationComplete(ChannelFuture future) throws Exception {
                     if (cf.isSuccess()) {
                         System.out.println("监听端口 6668 成功");
                     } else {
@@ -64,7 +63,7 @@ public class NettyServer {
 
             //对关闭通道进行监听
             cf.channel().closeFuture().sync();
-        }finally {
+        } finally {
             //优雅的关闭
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();

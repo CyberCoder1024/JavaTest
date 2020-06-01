@@ -9,23 +9,29 @@ package com.aodingkun;
  * @Version 1.0
  **/
 public class Base extends BaseClass {
-    public Base() {}
+    public Base() {
+    }
+
     {
         System.out.println("I’m Base class");
     }
+
     static {
         System.out.println("static Base");
     }
+
     public static void main(String[] args) {
         new Base();
     }
 
 }
-class BaseClass{
-    public BaseClass(){
+
+class BaseClass {
+    public BaseClass() {
 
         System.out.println("I’m BaseClass class");
     }
+
     static {
         System.out.println("static BaseClass");
     }

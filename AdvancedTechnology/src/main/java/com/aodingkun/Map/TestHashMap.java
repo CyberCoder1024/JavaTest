@@ -28,7 +28,7 @@ public class TestHashMap {
         Set<Map.Entry<Integer, String>> entrySet = hashMap.entrySet();
         Iterator<Map.Entry<Integer, String>> iterator1 = entrySet.iterator();
         //TODO 遍历
-        while (iterator1.hasNext()){
+        while (iterator1.hasNext()) {
             Map.Entry<Integer, String> entry = iterator1.next();
             Integer key = entry.getKey();
             String value = entry.getValue();
@@ -50,18 +50,19 @@ public class TestHashMap {
     }
 
 
-    private HashMap<String,String> userBox=new HashMap<String, String>();
+    private HashMap<String, String> userBox = new HashMap<String, String>();
+
     {
-        userBox.put("敖丙","ABC1234");
-        userBox.put("哪吒","abc9876");
+        userBox.put("敖丙", "ABC1234");
+        userBox.put("哪吒", "abc9876");
 
     }
 
-    public String login(String name,String password){
+    public String login(String name, String password) {
         String realPassword = userBox.get(name);
-        if (realPassword!=null){
+        if (realPassword != null) {
             //人命存在
-            if (realPassword.equals(password)){
+            if (realPassword.equals(password)) {
                 return "登录成功";
             }
         }

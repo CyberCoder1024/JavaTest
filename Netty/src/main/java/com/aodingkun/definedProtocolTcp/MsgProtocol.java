@@ -16,7 +16,6 @@ public class MsgProtocol {
      * +------+------+------+------+------+------+
      * |  帧头 |标志位 |长度  |数据内容 |校验位|帧尾|
      * +------+------+------+------+------+------+
-     *
      */
     private int heard;
     private short flag;//标志 命令 cmd
@@ -27,23 +26,26 @@ public class MsgProtocol {
     private int CRC;
 
     private short tail;
-    public MsgProtocol(){
+
+    public MsgProtocol() {
 
     }
 
-    public MsgProtocol(int heard,short flag,int contentLength,short tail){
-        this.heard=heard;
-        this.flag=flag;
-        this.contentLength=contentLength;
-        this.tail=tail;
+    public MsgProtocol(int heard, short flag, int contentLength, short tail) {
+        this.heard = heard;
+        this.flag = flag;
+        this.contentLength = contentLength;
+        this.tail = tail;
     }
-    public MsgProtocol(int heard,short flag, int contentLength,byte[] dataContent,short tail){
-        this.heard=heard;
-        this.flag=flag;
-        this.contentLength=contentLength;
-        this.dataContent=dataContent;
-        this.tail=tail;
+
+    public MsgProtocol(int heard, short flag, int contentLength, byte[] dataContent, short tail) {
+        this.heard = heard;
+        this.flag = flag;
+        this.contentLength = contentLength;
+        this.dataContent = dataContent;
+        this.tail = tail;
     }
+
     public int getHeard() {
         return heard;
     }

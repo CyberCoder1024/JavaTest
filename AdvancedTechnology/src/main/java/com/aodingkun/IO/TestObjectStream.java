@@ -17,7 +17,7 @@ public class TestObjectStream {
 
 
         //将对象直接记录在文件中
-        Person person = new Person("caixukun",11);
+        Person person = new Person("caixukun", 11);
         try {
             //ObjectInputStream ois = new ObjectInputStream(person);
             FileOutputStream fos = new FileOutputStream("D://test//test.txt");
@@ -34,7 +34,7 @@ public class TestObjectStream {
         //读取对象输入流
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("D://test//test.txt"));
-            Person person1=(Person)ois.readObject();
+            Person person1 = (Person) ois.readObject();
             System.out.println(person1);
             person1.eat();
             //通常会把所有记录的对象存在一个集合里

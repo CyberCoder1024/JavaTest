@@ -13,17 +13,20 @@ import java.io.Serializable;
 //示意性接口
 public class Person implements Serializable {
     //序列号
-    private long serialVersionUID=-440948515215806088L;
+    private long serialVersionUID = -440948515215806088L;
     private String name;
     private int age;
+
     //构造方法
-    public Person(){
+    public Person() {
 
     }
-    public Person(String name,int age){
-        this.name=name;
-        this.age=age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
+
     public String getName() {
         return name;
     }
@@ -40,7 +43,8 @@ public class Person implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-    public void eat(){
-        System.out.println(this.name+"的吃饭方法");
+
+    public void eat() {
+        System.out.println(this.name + "的吃饭方法");
     }
 }

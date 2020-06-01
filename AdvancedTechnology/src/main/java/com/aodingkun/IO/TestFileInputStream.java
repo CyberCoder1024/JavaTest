@@ -33,39 +33,39 @@ public class TestFileInputStream {
            //编译时异常
            e.printStackTrace();
        }*/
-     FileInputStream fis=null;
-    try{
-        //流
-        fis = new FileInputStream("D://test//test.txt");
-        int v=fis.available();//流管道中有多少缓存的字节   读取网络数据的数据可能会有问题
-        System.out.println(v);
+        FileInputStream fis = null;
+        try {
+            //流
+            fis = new FileInputStream("D://test//test.txt");
+            int v = fis.available();//流管道中有多少缓存的字节   读取网络数据的数据可能会有问题
+            System.out.println(v);
      /*   int code = fis.read();
         System.out.println((char)code);*/
-        //创建一个空的数组--->小推车
-        byte[] b = new byte[6 ];
-        int count = fis.read(b);//去文件里都东西 装入数组内 读取到的有效字节个数
-        while (count!=-1){
-            System.out.println("-----"+count+"-----");
-            String value = new String(b,0,count);
-            System.out.println(value);
-            count=fis.read(b);
+            //创建一个空的数组--->小推车
+            byte[] b = new byte[6];
+            int count = fis.read(b);//去文件里都东西 装入数组内 读取到的有效字节个数
+            while (count != -1) {
+                System.out.println("-----" + count + "-----");
+                String value = new String(b, 0, count);
+                System.out.println(value);
+                count = fis.read(b);
 
-        }
-
-    }catch (IOException e){
-        e.printStackTrace();
-    }finally {
-        try{
-            if (fis!=null){
-                //关闭的时流通道
-                fis.close();
             }
 
-        }catch (IOException E){
-            E.printStackTrace();
-        }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fis != null) {
+                    //关闭的时流通道
+                    fis.close();
+                }
 
-    }
+            } catch (IOException E) {
+                E.printStackTrace();
+            }
+
+        }
 
 
     }

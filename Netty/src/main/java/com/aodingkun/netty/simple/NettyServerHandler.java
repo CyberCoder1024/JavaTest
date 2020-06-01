@@ -76,7 +76,6 @@ public class NettyServerHandler extends ChannelInboundHandlerAdapter {
         }, 5, TimeUnit.SECONDS);
 
 
-
         System.out.println("go on ...");
 
 

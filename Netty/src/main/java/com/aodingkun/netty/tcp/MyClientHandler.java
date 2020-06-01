@@ -10,10 +10,11 @@ import java.nio.charset.Charset;
 public class MyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
 
     private int count;
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         //使用客户端发送10条数据 hello,server 编号
-        for(int i= 0; i< 10; ++i) {
+        for (int i = 0; i < 10; ++i) {
             ByteBuf buffer = Unpooled.copiedBuffer("hello,server " + i, Charset.forName("utf-8"));
             ctx.writeAndFlush(buffer);
         }
@@ -25,7 +26,7 @@ public class MyClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
         byte[] buffer = new byte[msg.readableBytes()];
         //将数据读取到字节数组中
         msg.readBytes(buffer);
-    //转成字符串 指定编码
+        //转成字符串 指定编码
         String message = new String(buffer, Charset.forName("utf-8"));
         System.out.println("客户端接收到消息=" + message);
         System.out.println("客户端接收消息数量=" + (++this.count));

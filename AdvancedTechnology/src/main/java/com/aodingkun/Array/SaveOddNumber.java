@@ -11,15 +11,15 @@ package com.aodingkun.Array;
 public class SaveOddNumber {
     public static void main(String[] args) {
         //1、创建需要的数组
-        int[] odd=new int[50];
+        int[] odd = new int[50];
         //2、需要将1-100之间的偶数存入数组内
-        for (int i=0;i<odd.length;i++){
-            odd[i]=2*i+2;
+        for (int i = 0; i < odd.length; i++) {
+            odd[i] = 2 * i + 2;
         }
         //3、输出验证看一看
-        for (int element:odd) {
+        for (int element : odd) {
             System.out.println(element);
-            
+
         }
     }
 }
