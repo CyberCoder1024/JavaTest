@@ -2,7 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/AdvancedTechnology" />
-    <file type="web" url="file://$PROJECT_DIR$/DataStructureAndAkforithm" />
+    <file type="web" url="file://$PROJECT_DIR$/DataStructureAndAlgorithm" />
     <file type="web" url="file://$PROJECT_DIR$/Netty" />
   </component>
   <component name="MavenProjectsManager">
@@ -12,6 +12,7 @@
         <option value="$PROJECT_DIR$/Netty/pom.xml" />
         <option value="$PROJECT_DIR$/DataStructure/pom.xml" />
         <option value="$PROJECT_DIR$/AdvancedTechnology/pom.xml" />
+        <option value="$PROJECT_DIR$/DataStructureAndAlgorithm/pom.xml" />
       </list>
     </option>
   </component>
