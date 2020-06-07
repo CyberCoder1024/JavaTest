@@ -2,7 +2,13 @@ package com.aodingkun.DataStructure.sort;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ *@ClassName: QuickSort
+ *@Description: 快速排序
+ *@Author: AoDingKun
+ *@Date :2020/6/7 18:34
+ *Project : QuickSort.java
+ */
 public class QuickSort {
 
     public static void main(String[] args) {

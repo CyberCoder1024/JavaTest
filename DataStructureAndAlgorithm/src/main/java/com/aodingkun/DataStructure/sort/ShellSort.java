@@ -2,7 +2,13 @@ package com.aodingkun.DataStructure.sort;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ *@ClassName: ShellSort
+ *@Description: 
+ *@Author: AoDingKun
+ *@Date :2020/6/7 19:55
+ *Project : ShellSort.java
+ */
 public class ShellSort {
 
     public static void main(String[] args) {

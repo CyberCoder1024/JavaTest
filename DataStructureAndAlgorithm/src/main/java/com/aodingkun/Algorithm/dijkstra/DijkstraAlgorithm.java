@@ -6,7 +6,7 @@ public class DijkstraAlgorithm {
 
 	public static void main(String[] args) {
 		char[] vertex = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
-		//�ڽӾ���
+		//
 		int[][] matrix = new int[vertex.length][vertex.length];
 		final int N = 65535;// ��ʾ����������
 		matrix[0]=new int[]{N,5,7,N,N,N,2};  
@@ -30,10 +30,9 @@ public class DijkstraAlgorithm {
 }
 
 class Graph {
-	private char[] vertex; // ��������
-	private int[][] matrix; // �ڽӾ���
-	private VisitedVertex vv; //�Ѿ����ʵĶ���ļ���
-
+	private char[] vertex; //
+	private int[][] matrix; //
+	private VisitedVertex vv; //
 	// ������
 	public Graph(char[] vertex, int[][] matrix) {
 		this.vertex = vertex;
@@ -52,11 +51,16 @@ class Graph {
 		}
 	}
 	
-	//�Ͻ�˹�����㷨ʵ��
 	/**
-	 * 
-	 * @param index ��ʾ���������Ӧ���±�
-	 */
+	 * @Description : 功能说明
+	 * @MethodName dsj
+	 * @Description:
+	 * @param index
+	 * @Return : void
+	 * @Author : AoDingKun
+	 * @Date : 2020/6/6 21:04
+	*/
+
 	public void dsj(int index) {
 		vv = new VisitedVertex(vertex.length, index);
 		update(index);//����index���㵽��Χ����ľ����ǰ������
@@ -68,7 +72,7 @@ class Graph {
 	
 	
 	
-	//����index�±궥�㵽��Χ����ľ������Χ�����ǰ������,
+
 	private void update(int index) {
 		int len = 0;
 		//���ݱ������ǵ��ڽӾ����  matrix[index]��
@@ -84,21 +88,22 @@ class Graph {
 	}
 }
 
-// �ѷ��ʶ��㼯��
+/**
+ *@ClassName: VisitedVertex
+ *@Description :
+ *@Author: AoDingKun
+ *@Date :2020/6/6 21:04
+ *Project : DijkstraAlgorithm.java
+ */
 class VisitedVertex {
-	// ��¼���������Ƿ���ʹ� 1��ʾ���ʹ�,0δ����,�ᶯ̬����
+	//
 	public int[] already_arr;
-	// ÿ���±��Ӧ��ֵΪǰһ�������±�, �ᶯ̬����
+	//
 	public int[] pre_visited;
-	// ��¼�������㵽�������ж���ľ���,����GΪ�������㣬�ͻ��¼G����������ľ��룬�ᶯ̬���£������̾���ͻ��ŵ�dis
+	//
 	public int[] dis;
 	
-	//������
-	/**
-	 * 
-	 * @param length :��ʾ����ĸ��� 
-	 * @param index: ���������Ӧ���±�, ����G���㣬�±����6
-	 */
+
 	public VisitedVertex(int length, int index) {
 		this.already_arr = new int[length];
 		this.pre_visited = new int[length];
@@ -109,44 +114,26 @@ class VisitedVertex {
 		this.dis[index] = 0;//���ó�������ķ��ʾ���Ϊ0
 				
 	}
-	/**
-	 * ����: �ж�index�����Ƿ񱻷��ʹ�
-	 * @param index
-	 * @return ������ʹ����ͷ���true, �������false
-	 */
+
 	public boolean in(int index) {
 		return already_arr[index] == 1;
 	}
 	
-	/**
-	 * ����: ���³������㵽index����ľ���
-	 * @param index
-	 * @param len
-	 */
+
 	public void updateDis(int index, int len) {
 		dis[index] = len;
 	}
-	/**
-	 * ����: ����pre��������ǰ������Ϊindex����
-	 * @param pre
-	 * @param index
-	 */
+
 	public void updatePre(int pre, int index) {
 		pre_visited[pre] = index;
 	}
-	/**
-	 * ����:���س������㵽index����ľ���
-	 * @param index
-	 */
+
 	public int getDis(int index) {
 		return dis[index];
 	}
 	
 	
-	/**
-	 * ����ѡ�񲢷����µķ��ʶ��㣬 ���������G ��󣬾��� A����Ϊ�µķ��ʶ���(ע�ⲻ�ǳ�������)
-	 * @return
-	 */
+
 	public int updateArr() {
 		int min = 65535, index = 0;
 		for(int i = 0; i < already_arr.length; i++) {
@@ -160,8 +147,7 @@ class VisitedVertex {
 		return index;
 	}
 	
-	//��ʾ���Ľ��
-	//�������������������
+
 	public void show() {
 		
 		System.out.println("==========================");
@@ -180,7 +166,7 @@ class VisitedVertex {
 			System.out.print(i + " ");
 		}
 		System.out.println();
-		//Ϊ�˺ÿ�������̾��룬���Ǵ���
+		//
 		char[] vertex = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
 		int count = 0;
 		for (int i : dis) {

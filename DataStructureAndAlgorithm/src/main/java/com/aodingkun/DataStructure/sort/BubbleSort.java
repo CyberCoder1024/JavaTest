@@ -7,57 +7,66 @@ import java.util.Date;
 public class BubbleSort {
 
     public static void main(String[] args) {
-//		int arr[] = {3, 9, -1, 10, 20};
-//		
-//		System.out.println("����ǰ");
-//		System.out.println(Arrays.toString(arr));
+        //		int arr[] = {3, 9, -1, 10, 20};
+        //
+        //		System.out.println("排序前");
+        //		System.out.println(Arrays.toString(arr));
 
-        //Ϊ��������⣬���ǰ�ð��������ݱ���̣������չʾ
 
-        //����һ��ð��������ٶ�O(n^2), ��80000�����ݣ�����
-        //����Ҫ��80000�������������
         int[] arr = new int[80000];
         for (int i = 0; i < 80000; i++) {
-            arr[i] = (int) (Math.random() * 8000000); //����һ��[0, 8000000) ��
+            arr[i] = (int) (Math.random() * 8000000); //生成0---80000 之间的随机数
         }
-
+        //测试排序时间
         Date data1 = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date1Str = simpleDateFormat.format(data1);
-        System.out.println("����ǰ��ʱ����=" + date1Str);
+        System.out.println("排序前的时间=" + date1Str);
 
-        //����ð������
+        //测试冒泡排序
         bubbleSort(arr);
 
         Date data2 = new Date();
         String date2Str = simpleDateFormat.format(data2);
-        System.out.println("������ʱ����=" + date2Str);
+        System.out.println("排序后的时间=" + date2Str);
 
-        //System.out.println("�����");
+        //System.out.println("排序后");
         //System.out.println(Arrays.toString(arr));
-		
-		
+
+
 		/*
-		
-		// �ڶ������򣬾��ǽ��ڶ���������ڵ����ڶ�λ
-		
+		//第一躺排序
+		 int temp = 0; //
+        boolean flag = false; //
+
+
+        for (int j = 0; j < arr.length - 1 - 0; j++) {
+                //如果前面的数比后面大 交换
+            if (arr[j] > arr[j + 1]) {
+              flag = true;
+               temp = arr[j];
+               arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+              }
+
+		//第二趟排序
 		for (int j = 0; j < arr.length - 1 - 1 ; j++) {
-			// ���ǰ������Ⱥ���������򽻻�
+			// 如果前面的数比后面大 交换
 			if (arr[j] > arr[j + 1]) {
 				temp = arr[j];
 				arr[j] = arr[j + 1];
 				arr[j + 1] = temp;
 			}
 		}
-		
+
 		System.out.println("�ڶ�������������");
 		System.out.println(Arrays.toString(arr));
-		
-		
-		// ���������򣬾��ǽ�������������ڵ�������λ
-		
+
+
+		// 第三趟排序
+
 		for (int j = 0; j < arr.length - 1 - 2; j++) {
-			// ���ǰ������Ⱥ���������򽻻�
+			 如果前面的数比后面大 交换
 			if (arr[j] > arr[j + 1]) {
 				temp = arr[j];
 				arr[j] = arr[j + 1];
@@ -67,8 +76,8 @@ public class BubbleSort {
 
 		System.out.println("����������������");
 		System.out.println(Arrays.toString(arr));
-		
-		// ���������򣬾��ǽ���4��������ڵ�����4λ
+
+		// 第四趟排序
 
 		for (int j = 0; j < arr.length - 1 - 3; j++) {
 			// ���ǰ������Ⱥ���������򽻻�
@@ -84,15 +93,18 @@ public class BubbleSort {
 
     }
 
-    // ��ǰ���ð�������㷨����װ��һ������
+    /**
+     *O（n^2)
+     * @param arr
+     */
     public static void bubbleSort(int[] arr) {
-        // ð������ ��ʱ�临�Ӷ� O(n^2), �Լ�д��
-        int temp = 0; // ��ʱ����
-        boolean flag = false; // ��ʶ��������ʾ�Ƿ���й�����
+        //冒泡排序
+        int temp = 0; //临时变量
+        boolean flag = false; //标识变量 标识是否进行过交换
         for (int i = 0; i < arr.length - 1; i++) {
 
             for (int j = 0; j < arr.length - 1 - i; j++) {
-                // ���ǰ������Ⱥ���������򽻻�
+                //如果前面的数比后面大 交换
                 if (arr[j] > arr[j + 1]) {
                     flag = true;
                     temp = arr[j];
@@ -100,13 +112,13 @@ public class BubbleSort {
                     arr[j + 1] = temp;
                 }
             }
-            //System.out.println("��" + (i + 1) + "������������");
+            //System.out.println("第" + (i + 1) + "趟排序");
             //System.out.println(Arrays.toString(arr));
 
-            if (!flag) { // ��һ�������У�һ�ν�����û�з�����
+            if (!flag) { //在一趟排序中 一次交换也没出现 flag==false
                 break;
             } else {
-                flag = false; // ����flag!!!, �����´��ж�
+                flag = false; //重置flag 进行下次判断
             }
         }
     }

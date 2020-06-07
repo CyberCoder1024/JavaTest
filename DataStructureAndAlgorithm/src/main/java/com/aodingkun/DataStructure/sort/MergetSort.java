@@ -2,7 +2,13 @@ package com.aodingkun.DataStructure.sort;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+/**
+ *@ClassName: MergetSort
+ *@Description: 
+ *@Author: AoDingKun
+ *@Date :2020/6/7 19:55
+ *Project : MergetSort.java
+ */
 public class MergetSort {
 
     public static void main(String[] args) {
