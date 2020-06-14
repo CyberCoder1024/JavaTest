@@ -14,8 +14,7 @@ public class QuickSort {
     public static void main(String[] args) {
         //int[] arr = {-9,78,0,23,-567,70, -1,900, 4561};
 
-        //���Կ��ŵ�ִ���ٶ�
-        // ����Ҫ��80000�������������
+        //
         int[] arr = new int[8000000];
         for (int i = 0; i < 8000000; i++) {
             arr[i] = (int) (Math.random() * 8000000); // ����һ��[0, 8000000) ��
@@ -35,54 +34,59 @@ public class QuickSort {
         //System.out.println("arr=" + Arrays.toString(arr));
     }
 
+    /**
+     *
+     * @param arr
+     * @param left
+     * @param right
+     */
     public static void quickSort(int[] arr, int left, int right) {
-        int l = left; //���±�
-        int r = right; //���±�
-        //pivot ����ֵ
+        int l = left; //左下标
+        int r = right; //右下标
+        //pivot 中轴
         int pivot = arr[(left + right) / 2];
-        int temp = 0; //��ʱ��������Ϊ����ʱʹ��
-        //whileѭ����Ŀ�����ñ�pivot ֵС�ŵ����
-        //��pivot ֵ��ŵ��ұ�
+        int temp = 0; //临时变量 作为交换时使用
+        //while循环的目的 --> 让比pivot值小的值放到其左边 比 pivot 值大的放在其右边
         while (l < r) {
-            //��pivot�����һֱ��,�ҵ����ڵ���pivotֵ,���˳�
+            //在pivot的左边一直找 找到大于等于pivot的值才退出
             while (arr[l] < pivot) {
                 l += 1;
             }
-            //��pivot���ұ�һֱ��,�ҵ�С�ڵ���pivotֵ,���˳�
+            //在pivot的右边一直找 找到小于等于pivot的值才退出
             while (arr[r] > pivot) {
                 r -= 1;
             }
-            //���l >= r˵��pivot ����������ֵ���Ѿ��������ȫ����
-            //С�ڵ���pivotֵ���ұ�ȫ���Ǵ��ڵ���pivotֵ
+            //如果l》=r 说明pivot 的左右两边的值 已经按照左边全部是
+            //小于pivot 的值 右边全部都是大于等于pivot值
             if (l >= r) {
                 break;
             }
 
-            //����
+            //交换
             temp = arr[l];
             arr[l] = arr[r];
             arr[r] = temp;
 
-            //���������󣬷������arr[l] == pivotֵ ��� r--�� ǰ��
+            //如果交换后 发现 arr[l] ==pivot的值 相等 --，前移
             if (arr[l] == pivot) {
                 r -= 1;
             }
-            //���������󣬷������arr[r] == pivotֵ ��� l++�� ����
+            //如果交换后 发现 arr[r] ==pivot的值 相等 ++，后移
             if (arr[r] == pivot) {
                 l += 1;
             }
         }
 
-        // ��� l == r, ����l++, r--, ����Ϊ����ջ���
+        // 如果 l == r 必须 l++，r-- 否则会出现栈溢出
         if (l == r) {
             l += 1;
             r -= 1;
         }
-        //����ݹ�
+        //向左递归
         if (left < r) {
             quickSort(arr, left, r);
         }
-        //���ҵݹ�
+        //向右递归
         if (right > l) {
             quickSort(arr, l, right);
         }
