@@ -2,7 +2,7 @@ package com.aodingkun.Thread;
 
 /**
  * @ClassName TestDaemon
- * @Description
+ * @Description 守护线程
  * @Author jonas.ao
  * @Date 2020/5/24
  * Project JavaTest

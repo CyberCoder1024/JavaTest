@@ -7,16 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="AdvancedTechnology" />
-        <module name="DataStructureAndAlgorithm" />
+        <module name="DataStructure" />
         <module name="Netty" />
         <module name="ObjectOrientedProgramming" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="AdvancedTechnology" target="8" />
-      <module name="DataStructureAndAlgorithm" target="1.7" />
+      <module name="DataStructure" target="1.7" />
       <module name="Netty" target="8" />
-      <module name="ObjectOrientedProgramming" target="1.5" />
+      <module name="ObjectOrientedProgramming" target="7" />
     </bytecodeTargetLevel>
   </component>
 </project>

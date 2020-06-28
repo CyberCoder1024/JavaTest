@@ -34,7 +34,12 @@ class BuyTicket implements Runnable{
 
     }
 
-    private void buy() throws InterruptedException {
+    /**
+     * 同步方法
+     * 锁是this
+     * @throws InterruptedException
+     */
+    private synchronized void buy() throws InterruptedException {
         if (ticketNums<=0){
             flag=false;
 

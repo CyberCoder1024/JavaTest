@@ -49,7 +49,7 @@ public class NettyServerHandler extends SimpleChannelInboundHandler<MyDataInfo.M
 //    2. Object msg: 就是客户端发送的数据 默认Object
 //     */
 //    @Override
-//    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+//    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Throwable {
 //
 //        //读取从客户端发送的StudentPojo.Student
 //

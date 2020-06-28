@@ -27,7 +27,7 @@ public class MyClientHandler extends SimpleChannelInboundHandler<Long> {
         //4. 父类  MessageToByteEncoder
         /*
 
-         public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
+         public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Throwable {
         ByteBuf buf = null;
         try {
             if (acceptOutboundMessage(msg)) { //判断当前msg 是不是应该处理的类型，如果是就处理，不是就跳过encode

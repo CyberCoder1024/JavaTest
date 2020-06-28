@@ -12,7 +12,7 @@ public class UnsafeBank {
     public static void main(String[] args) {
         Account account=new Account(111110000,"xxxxxxx" );
         Drawing you=new Drawing(account, 1111111, 22);
-        Drawing he=new Drawing(account, 1111111, 33);
+        Drawing he=new Drawing(account, 1111111111, 33);
         you.start();
         he.start();
 
@@ -44,19 +44,25 @@ class Drawing extends Thread{
         this.nowMoney=nowMoney;
     }
 
+    /**
+     *synchronized 默认锁是this
+     */
     @Override
-    public void run() {
-        super.run();
-        //判断有没有money
-        if (account.money-drawingMoney<0){
-            System.out.println(Thread.currentThread().getName()+"钱不够 取不了");
-            return;
+    public synchronized void run() {
+        synchronized (account){
+            super.run();
+            //判断有没有money
+            if (account.money-drawingMoney<0){
+                System.out.println(Thread.currentThread().getName()+"钱不够 取不了");
+                return;
+            }
+            //卡内余额
+            account.money=account.money-drawingMoney;
+            //手里钱
+            nowMoney=nowMoney+drawingMoney;
+            System.out.println(account.name+"余额"+account.money);
+            System.out.println(this.getName()+"手里的钱"+nowMoney);
         }
-        //卡内余额
-        account.money=account.money-drawingMoney;
-        //手里钱
-        nowMoney=nowMoney+drawingMoney;
-        System.out.println(account.name+"余额"+account.money);
-        System.out.println(this.getName()+"手里的钱"+nowMoney);
+
     }
 }

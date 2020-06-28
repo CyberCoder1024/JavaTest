@@ -53,7 +53,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
                     System.out.println("EchoServerHandler execute 线程是=" + Thread.currentThread().getName());
                     ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(>^ω^<)喵2", CharsetUtil.UTF_8));
 
-                } catch (Exception ex) {
+                } catch (Throwable ex) {
                     System.out.println("发生异常" + ex.getMessage());
                 }
             }
@@ -69,7 +69,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
                     System.out.println("EchoServerHandler execute 线程2是=" + Thread.currentThread().getName());
                     ctx.writeAndFlush(Unpooled.copiedBuffer("hello, 客户端~(>^ω^<)喵2", CharsetUtil.UTF_8));
 
-                } catch (Exception ex) {
+                } catch (Throwable ex) {
                     System.out.println("发生异常" + ex.getMessage());
                 }
             }
@@ -79,7 +79,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         //将任务提交到 group线程池
         group.submit(new Callable<Object>() {
             @Override
-            public Object call() throws Exception {
+            public Object call() throws Throwable {
 
                 //接收客户端信息
                 ByteBuf buf = (ByteBuf) msg;
@@ -98,7 +98,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         //将任务提交到 group线程池
         group.submit(new Callable<Object>() {
             @Override
-            public Object call() throws Exception {
+            public Object call() throws Throwable {
 
                 //接收客户端信息
                 ByteBuf buf = (ByteBuf) msg;
@@ -118,7 +118,7 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         //将任务提交到 group线程池
         group.submit(new Callable<Object>() {
             @Override
-            public Object call() throws Exception {
+            public Object call() throws Throwable {
 
                 //接收客户端信息
                 ByteBuf buf = (ByteBuf) msg;
